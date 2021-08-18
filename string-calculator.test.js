@@ -18,4 +18,10 @@ describe('String Calculator', () => {
     expect(add("1\n,2,3")).toBe(6);
     expect(add("1,\n2,4")).toBe(7);
   });
+
+  it('Support custom delimiter', () => {
+    expect(add("//;\n1;3;4")).toBe(8);
+    expect(add("//$\n1$2$3")).toBe(6);
+    expect(add("//@\n2@3@8")).toBe(13);
+  });
 });
