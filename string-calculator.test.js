@@ -52,4 +52,8 @@ describe('String Calculator', () => {
   it('Allow for multiple delimiters', () => {
     expect(add("//$,@\n1$2@3")).toBe(6);
   });
+
+  it('Allow multiple delimiters of arbitrary length', () => {
+    expect(add("//$$,@@\n1$$2@@3")).toBe(6);
+  });
 });
