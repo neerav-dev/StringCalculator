@@ -38,4 +38,9 @@ describe('String Calculator', () => {
       expect(error).toBe("Negatives not allowed, [-5,-4].");
     }
   });
+
+  it('Ignore number larger then 1000', () => {
+    expect(add("2,1001")).toBe(2);
+    expect(add("//;\n1;3;4;1000")).toBe(1008);
+  });
 });

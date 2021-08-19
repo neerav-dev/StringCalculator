@@ -22,8 +22,10 @@ const Add = function (inputString) {
   const number_arr = numbers.split(delimiter);
   number_arr.map(num => {
     const number = Number(num);
-    if (num > 0) {
-      sum += number;
+    if (number > 0) {
+      if (number <= 1000) {
+        sum += number;
+      }
     } else {
       negativeNumbers.push(num);
     }
