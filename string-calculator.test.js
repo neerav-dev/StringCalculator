@@ -43,4 +43,9 @@ describe('String Calculator', () => {
     expect(add("2,1001")).toBe(2);
     expect(add("//;\n1;3;4;1000")).toBe(1008);
   });
+
+  it('Delimiters can be arbitrary length', () => {
+    expect(add("//***\n1***3***4***1000")).toBe(1008);
+    expect(add("//@@\n1@@3@@4@@1000")).toBe(1008);
+  });
 });
