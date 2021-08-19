@@ -7,6 +7,7 @@ const Add = function (inputString) {
   const controlCode = '//';
   let delimiter = ',';
   let numbers = '';
+  let negativeNumbers = [];
   let sum = 0;
 
   if (inputString.startsWith(controlCode)) {
@@ -19,8 +20,20 @@ const Add = function (inputString) {
   }
 
   const number_arr = numbers.split(delimiter);
-  number_arr.map(num => sum += Number(num));
+  number_arr.map(num => {
+    const number = Number(num);
+    if (num > 0) {
+      sum += number;
+    } else {
+      negativeNumbers.push(num);
+    }
+  });
   
+
+  if (negativeNumbers.length > 0) {
+   throw `Negatives not allowed, [${negativeNumbers.toString()}].`;
+  }
+
   return sum;
 };
 

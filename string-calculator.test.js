@@ -24,4 +24,18 @@ describe('String Calculator', () => {
     expect(add("//$\n1$2$3")).toBe(6);
     expect(add("//@\n2@3@8")).toBe(13);
   });
+
+  it('Negative number throw exception: "Negatives not allowed"', () => {
+    try {
+      add("//;\n1;2;-5");
+    } catch (error) {
+      expect(error).toBe("Negatives not allowed, [-5].");
+    }
+
+    try {
+      add("//;\n1;2;-5;3;-4");
+    } catch (error) {
+      expect(error).toBe("Negatives not allowed, [-5,-4].");
+    }
+  });
 });
