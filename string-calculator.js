@@ -6,21 +6,24 @@ const Add = function (inputString) {
   
   const controlCode = '//';
   let delimiter = ',';
+  let delimiters = [','];
   let numbers = '';
   let negativeNumbers = [];
   let sum = 0;
 
   if (inputString.startsWith(controlCode)) {
     const inputs = inputString.split('\n');
-    delimiter = inputs[0].substr(2);
+    delimiters = inputs[0].substr(2).split(delimiter);
     numbers = inputs[1];
-    
   } else {
     numbers = inputString;
   }
 
-  const number_arr = numbers.split(delimiter);
-  number_arr.map(num => {
+  let regexp = new RegExp(`[${delimiters}]`);
+
+  const number_arr = numbers.split(regexp);
+
+  number_arr.filter(n => n !== '').map(num => {
     const number = Number(num);
     if (number > 0) {
       if (number <= 1000) {

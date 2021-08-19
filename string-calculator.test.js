@@ -48,4 +48,8 @@ describe('String Calculator', () => {
     expect(add("//***\n1***3***4***1000")).toBe(1008);
     expect(add("//@@\n1@@3@@4@@1000")).toBe(1008);
   });
+
+  it('Allow for multiple delimiters', () => {
+    expect(add("//$,@\n1$2@3")).toBe(6);
+  });
 });
